@@ -20,8 +20,9 @@ from django.conf import settings
 from django.views.static import serve
 from django.urls import re_path
 
+
 urlpatterns = [
-    path('chat/', include('chat.urls'), name='chat'),
+    path('', include('chat.urls')),
     path('admin/', admin.site.urls),
 ]
 
