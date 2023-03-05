@@ -34,7 +34,7 @@ def create_and_add_message(request, role, content):
     message = Message(
         role=role,
         content=content,
-        sender_name="Player" if role == "user" else "D&Donald",
+        sender_name="Player" if role == "user" else "DonaldDM",
     )
     message.save()
     request.session["message_ids"] = request.session.get("message_ids", []) + [
