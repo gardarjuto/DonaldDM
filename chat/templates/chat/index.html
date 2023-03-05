@@ -12,7 +12,7 @@
         </div>
         <div id="content">
             <div id="image-container">
-                <img src="{% static 'chat/donald.jpeg' %}" alt="Donald Trump"/>
+                <img src="{% static 'chat/donald.png' %}" alt="Donald Trump"/>
             </div>
             <div id="chat-container">
                 <div id="messages-container" hx-get="{% url 'show-next-response' %}" hx-trigger="show-next-response from:body scroll:bottom" hx-swap="beforeend">
