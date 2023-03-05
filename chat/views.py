@@ -11,7 +11,7 @@ from .models import Message
 
 openai.api_key = settings.OPENAI_API_KEY
 eleven_labs_user = ElevenLabsUser(settings.ELEVENLABS_API_KEY)
-voice = eleven_labs_user.get_voices_by_name("Sam")[0]
+voice = eleven_labs_user.get_voices_by_name("Donnie")[0]
 
 
 system_message = {
@@ -20,7 +20,7 @@ system_message = {
 }
 
 def fetch_audio(message):
-    audio_bytes = voice.generate_audio_bytes(message.content if not settings.DEBUG else "Hello, this is a test.")
+    audio_bytes = voice.generate_audio_bytes(message.content)
     message.audio.save(f"{message.id}.mp3", File(io.BytesIO(audio_bytes)))
 
 
