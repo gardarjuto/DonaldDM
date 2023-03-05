@@ -15,7 +15,7 @@
                 <img src="{% static 'chat/donald.jpeg' %}" alt="Donald Trump"/>
             </div>
             <div id="chat-container">
-                <div id="messages-container" hx-get="{% url 'show-next-response' %}" hx-trigger="show-next-response from:body" hx-swap="beforeend">
+                <div id="messages-container" hx-get="{% url 'show-next-response' %}" hx-trigger="show-next-response from:body scroll:bottom" hx-swap="beforeend">
                     {% for message in messages %}
                         {% include 'chat/message.html' %}
                     {% endfor %}
