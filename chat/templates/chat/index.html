@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>D&Donald</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
+    </head>
+    <body>
+        <div id="header">
+            <h1>D&Donald</h1>
+        </div>
+        <div id="content">
+            <div id="image-container">
+                <img src="{% static 'chat/donald.jpeg' %}" alt="Donald Trump"/>
+            </div>
+            <div id="chat-container">
+                <div id="messages-container" hx-get="{% url 'show-next-response' %}" hx-trigger="show-next-response from:body" hx-swap="beforeend">
+                    {% for message in messages %}
+                        {% include 'chat/message.html' %}
+                    {% endfor %}
+                </div>
+                <div id="form-container">
+                    <form id="message-form"
+                          hx-post="{% url 'send-message' %}"
+                          hx-target="#messages-container"
+                          hx-swap="beforeend">
+                        <label for="message">Message:</label>
+                        <textarea id="message"
+                                  name="message"
+                                  rows="5"
+                                  required
+                                  placeholder="Your response..."></textarea>
+                    </form>
+                    <div id="buttons-container">
+                        <button hx-delete="{% url 'clear-messages' %}" id="clear-button" 
+                        hx-target="#messages-container">New conversation</button>
+                        <button type="submit" form="message-form">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/htmx.org@1.1.0"></script>
+        <script>
+            document.body.addEventListener('htmx:afterSwap', function(evt) {
+                const form = document.querySelector("#message-form");
+                form.reset();
+            });
+            document.body.addEventListener('htmx:configRequest', (event) => {
+                event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+                console.log(event.detail.headers);
+            });
+
+        </script>
+    </body>
+</html>

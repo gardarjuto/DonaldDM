@@ -1,0 +1,17 @@
+{% load static %}
+<div class="message {{ message.sender }}">
+    <div class="message-header">
+        <p>{{ message.sender_name }}</p>
+        <p>{{ message.timestamp|date:"g:i A" }}</p>
+        {% if message.role == 'assistant' and message.audio %}
+            <audio controls autoplay controlslist="nodownload noplaybackrate">
+                <source src="{{ message.audio.url }}" type="audio/mpeg">
+            </audio>
+        {% endif %}
+    </div>
+    <div class="message-body">
+        <p>
+            {{ message.content }}
+        </p>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+#header {
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+#header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+#image-container {
+  flex: 1 1 30%;
+  padding: 20px;
+}
+#image-container img {
+  width: 100%;
+  height: auto;
+}
+#chat-container {
+  flex: 1 1 60%;
+  padding: 20px;
+}
+#messages-container {
+  padding: 20px;
+  background-color: #f1f1f1;
+  height: 400px;
+  overflow-y: scroll;
+}
+#messages-container p {
+  margin: 0;
+  font-size: 14px;
+}
+#form-container {
+  flex: 1 1 100%;
+  padding: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+input[type="text"],
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+#buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #3e8e41;
+}
+#footer {
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+#footer p {
+  margin: 0;
+  font-size: 14px;
+}
+.message {
+  display: flex;
+  flex-direction: row;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  border-color: #ccc;
+  border-style: solid;
+  padding: 10px;
+  margin: 5px;
+}
+.donald {
+  background-color: rgba(255, 70, 70, 0.2);
+}
+.message-header {
+  flex: 1 1 10%;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 4px;
+}
+.message-body {
+  flex: 1 1 80%;
+  font-size: 14px;
+}
+#clear-button {
+  background-color: red;
+}
+/* Specifies the size of the audio container */
+audio {
+  width: 100px !important;
+  height: 25px;
+}
+
+
+/* Removes the timeline */
+audio::-webkit-media-controls-timeline {
+  display: none ;
+}
+
+/* Removes the time stamp */
+audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+audio::-webkit-media-controls-mute-button {
+  display: none;
+}
