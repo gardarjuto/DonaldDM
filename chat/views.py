@@ -20,7 +20,7 @@ system_message = {
 }
 
 def fetch_audio(message):
-    audio_bytes = voice.generate_audio_bytes(message.content)
+    audio_bytes = voice.generate_audio_bytes(message.content if not settings.DEBUG else "Hello world")
     message.audio.save(f"{message.id}.mp3", File(io.BytesIO(audio_bytes)))
 
 
